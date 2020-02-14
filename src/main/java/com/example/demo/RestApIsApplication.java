@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import com.example.demo.auth.AuthResponse;
+import com.example.demo.auth.AuthServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -18,8 +20,13 @@ public class RestApIsApplication {
     private AuthServices authServices;
 
     @RequestMapping(method = RequestMethod.POST,value = "/api/auth")
-    public String auth(@RequestBody User user){
+    public AuthResponse auth(@RequestBody User user){
         return authServices.checkAuth(user);
+    }
+
+    @RequestMapping(method = RequestMethod.POST,value = "/api/reg")
+    public RegistrationResponse registration(@RequestBody User user){
+        return authServices.registration(user);
     }
 
 //    @RequestMapping("/api/{s}")

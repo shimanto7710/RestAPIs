@@ -2,21 +2,26 @@ package com.example.demo;
 
 public class User {
     private String id;
-    private String name;
+    private String userId;
     private String pass;
     private String token;
 
-    public User(String id, String name, String pass) {
+    public User(String id, String userId, String pass) {
         this.id = id;
-        this.name = name;
+        this.userId = userId;
         this.pass = pass;
     }
+
+//    public User(String userId, String pass) {
+//        this.userId = userId;
+//        this.pass = pass;
+//    }
 
     @Override
     public String toString() {
         return "User{" +
                 "id='" + id + '\'' +
-                ", name='" + name + '\'' +
+                ", name='" + userId + '\'' +
                 ", pass='" + pass + '\'' +
                 ", token='" + token + '\'' +
                 '}';
@@ -30,12 +35,12 @@ public class User {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getPass() {
