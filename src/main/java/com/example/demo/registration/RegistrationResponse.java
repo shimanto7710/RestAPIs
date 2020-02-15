@@ -1,4 +1,6 @@
-package com.example.demo;
+package com.example.demo.registration;
+
+import com.example.demo.User;
 
 public class RegistrationResponse {
     private boolean isSuccess;

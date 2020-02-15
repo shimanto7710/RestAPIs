@@ -1,14 +1,12 @@
 package com.example.demo.auth;
 
-import com.example.demo.RegistrationResponse;
-import com.example.demo.ResponseMessage;
+import com.example.demo.registration.RegistrationResponse;
 import com.example.demo.User;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 
 @Service
 public class AuthServices {

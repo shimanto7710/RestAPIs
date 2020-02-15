@@ -1,7 +1,5 @@
 package com.example.demo.auth;
 
-import com.example.demo.ResponseMessage;
-
 public class AuthResponse {
     private boolean success;
     private String message;
