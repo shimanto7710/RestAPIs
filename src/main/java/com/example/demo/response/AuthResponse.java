@@ -1,4 +1,4 @@
-package com.example.demo.auth;
+package com.example.demo.response;
 
 public class AuthResponse {
     private boolean success;

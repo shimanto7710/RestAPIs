@@ -1,7 +1,8 @@
-package com.example.demo.auth;
+package com.example.demo.services;
 
-import com.example.demo.registration.RegistrationResponse;
-import com.example.demo.User;
+import com.example.demo.response.AuthResponse;
+import com.example.demo.response.RegistrationResponse;
+import com.example.demo.models.User;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
