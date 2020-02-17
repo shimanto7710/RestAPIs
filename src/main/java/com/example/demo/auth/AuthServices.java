@@ -14,7 +14,7 @@ public class AuthServices {
     private AuthDataHandlerInterface authDataHandlerInterface;
 
     @Autowired
-    public AuthServices(@Qualifier("fakeData") AuthDataHandlerInterface authDataHandlerInterface){
+    public AuthServices(@Qualifier("realData") AuthDataHandlerInterface authDataHandlerInterface){
         this.authDataHandlerInterface=authDataHandlerInterface;
     }
 

@@ -6,12 +6,12 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
+@RequestMapping(value="/api")
 public class AuthenticationController {
     @Autowired
     private AuthenticationManager authenticationManager;
@@ -25,16 +25,28 @@ public class AuthenticationController {
     @Autowired
     private AuthServices authServices;
 
-    @RequestMapping(method = RequestMethod.POST,value = "/api/auth")
+    @Autowired
+    private UserRepository userRepository;
+
+    @RequestMapping(method = RequestMethod.POST,value = "/auth")
     public AuthResponse auth(@RequestBody User user){
         return authServices.authenticateUser(user);
     }
 
-    @RequestMapping(method = RequestMethod.POST,value = "/api/reg")
+    @RequestMapping(method = RequestMethod.POST,value = "/reg")
     public AuthResponse registration(@RequestBody User user){
         return authServices.addUser(user);
     }
 
+//    @PostMapping(value = "/login")
+//    public User userValidity(@RequestBody User user){
+//        return userRepository.findByName(user.getUsername());
+//    }
+
+    @GetMapping(value = "/getalluser")
+    public List<User> getAll(){
+        return authServices.getAllUser();
+    }
 
 
     @RequestMapping({ "/hello" })
