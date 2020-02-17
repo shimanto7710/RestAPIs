@@ -1,13 +1,5 @@
-package com.example.demo.api;
+package com.example.demo.auth;
 
-import com.example.demo.models.User;
-import com.example.demo.response.AuthResponse;
-import com.example.demo.models.AuthenticationRequest;
-import com.example.demo.response.AuthenticationResponse;
-import com.example.demo.response.RegistrationResponse;
-import com.example.demo.services.AuthServices;
-import com.example.demo.services.MyUserDetailsService;
-import com.example.demo.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -35,12 +27,12 @@ public class AuthenticationController {
 
     @RequestMapping(method = RequestMethod.POST,value = "/api/auth")
     public AuthResponse auth(@RequestBody User user){
-        return authServices.checkAuth(user);
+        return authServices.authenticateUser(user);
     }
 
     @RequestMapping(method = RequestMethod.POST,value = "/api/reg")
-    public RegistrationResponse registration(@RequestBody User user){
-        return authServices.registration(user);
+    public AuthResponse registration(@RequestBody User user){
+        return authServices.addUser(user);
     }
 
 
@@ -51,7 +43,7 @@ public class AuthenticationController {
     }
 
     @RequestMapping(value = "/authenticate", method = RequestMethod.POST)
-    public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest) throws Exception {
+    public ResponseEntity<?> createAuthenticationToken(@RequestBody User authenticationRequest) throws Exception {
 
         try {
             authenticationManager.authenticate(

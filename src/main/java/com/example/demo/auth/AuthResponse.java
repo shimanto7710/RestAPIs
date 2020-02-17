@@ -1,13 +1,11 @@
-package com.example.demo.response;
+package com.example.demo.auth;
 
-import com.example.demo.models.User;
-
-public class RegistrationResponse {
+public class AuthResponse {
     private boolean isSuccess;
     private String message;
     private User user;
 
-    public RegistrationResponse(boolean isSuccess, String message, User user) {
+    public AuthResponse(boolean isSuccess, String message, User user) {
         this.isSuccess = isSuccess;
         this.message = message;
         this.user = user;

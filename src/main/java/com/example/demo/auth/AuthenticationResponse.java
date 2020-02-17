@@ -1,4 +1,4 @@
-package com.example.demo.response;
+package com.example.demo.auth;
 
 import java.io.Serializable;
 

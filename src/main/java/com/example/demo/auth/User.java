@@ -1,8 +1,8 @@
-package com.example.demo.models;
+package com.example.demo.auth;
 
 import java.io.Serializable;
 
-public class AuthenticationRequest implements Serializable {
+public class User implements Serializable {
 
 
     private String username;
@@ -25,12 +25,12 @@ public class AuthenticationRequest implements Serializable {
     }
 
     //need default constructor for JSON Parsing
-    public AuthenticationRequest()
+    public User()
     {
 
     }
 
-    public AuthenticationRequest(String username, String password) {
+    public User(String username, String password) {
         this.setUsername(username);
         this.setPassword(password);
     }
