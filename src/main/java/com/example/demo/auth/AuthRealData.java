@@ -36,7 +36,7 @@ public class AuthRealData implements AuthDataHandlerInterface {
     public AuthResponse authenticateUser(User user) {
         User user1= userRepository.findByNameAndPass(user.getUsername(),user.getPassword());
         if (user1!=null){
-            return new AuthResponse(true,"Valid user!",user);
+            return new AuthResponse(true,"Valid user!",user1);
         }
         return new AuthResponse(false,"There is no such user named "+user.getUsername(), user);
     }
